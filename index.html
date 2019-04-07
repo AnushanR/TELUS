@@ -1,19 +1,107 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TELUS Case Study</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    
+  <meta charset="UTF-8">
+  <title>Telus Demo</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
+
+
+
+
 <body>
-    <div class = "info">
-            hello this is a test
-    </div>
+    <h1> Phone Selection</h1>
+   
+    <!-- Generic "phone-div" -->
+  <div id="phone-div"></div>
+
+   <!-- Generic "data-div" div-->
+   <div id="data-div"></div>
+
+    <!-- Generic "gb-div" div-->
+  <div id="gb-div"></div>
+
+
+  
+
+  
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      // Initial objects given a property and a property value 
+      var phonePrice= {
+          premium: 0,
+          premiumPlus: 0,
+          standard: 150,
+          retail: 1500
+        };
+
+        var data = {
+            unlimitedNationWideCalling: 65,
+            canada: 80
+        }
+
+        var dataGB = {
+            sixGB: 30,
+            tenGB: 40,
+            fourteenGB: 50
+
+        };
+
+
+
+        // JQuery selector in order to manipulate the div with the id (#phone-div)
+        var phoneDiv = $("#phone-div");
+        
+        var phonePlan =  Object.values(phonePrice) 
+        
+        // For Loop then loops through our  phonePrice list...
+        for (var i = 0; i <phonePlan.length; i ++) {
+
+            // It then creates a new div for each price. 
+            var newPhoneplan = $("<div>" + phonePlan[i] + "</div>");
+
+            // It then adds this new div to the  phoneDiv.
+            phoneDiv.append(newPhoneplan);
+        };
+        
+        var dataDiv = $("#data-div");
+
+        var dataPlan = Object.values(data)
+        
+        for (var i = 0; i <dataPlan.length; i ++) {
+
+            var newDataplan = $("<div>" + dataPlan[i] + "</div>");
+
+             // It then adds this new div to the  dataDiv.
+             dataDiv.append(newDataplan);
+        }
+
+
+        var gb = Object.values(dataGB)
+
+        for (var i =0; i <gb.length; i++) {
+            
+            console.log(gb[i]);
+        };
+
+        
+
+
+       
+
+        
+
+        
+
+        
+     
+    });
+  </script>
 </body>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
-<script src="assets/app.js"></script>
+
 </html>
+
